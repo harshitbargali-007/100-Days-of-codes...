@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int nums[n];
+    for (int i = 0; i < n; i++) scanf("%d", &nums[i]);
+    int cand = 0, count = 0;
+    for (int i = 0; i < n; i++) {
+        if (count == 0) cand = nums[i];
+        count += (nums[i] == cand) ? 1 : -1;
+    }
+    count = 0;
+    for (int i = 0; i < n; i++) if (nums[i] == cand) count++;
+    if (count > n / 2) printf("%d\n", cand);
+    else printf("-1\n");
+    return 0;
+}
